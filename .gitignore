@@ -7,3 +7,11 @@
 
 # .tfvars files
 *.tfvars
+
+# .pem & .pub files
+*.pem
+*.pub
+
+# Any Key File
+# *key*.*
+# *Key*.*

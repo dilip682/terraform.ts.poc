@@ -7,11 +7,11 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "brixon"
+  default = "dcust"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "brixon.pub"
+  default = "dcust.pub"
 }
 
 variable "blr_cidr_block" {
@@ -21,13 +21,13 @@ variable "blr_cidr_block" {
 
 variable "environment" {
   type        = "string"
-  default     = "abc"
+  default     = "Dev"
   description = "Environment such as Prod, Dev, Test"
 }
 
 variable "name" {
   type        = "string"
-  default     = "xyz"
+  default     = "dcust"
   description = "Name of customer ex. Gymboree"
 }
 

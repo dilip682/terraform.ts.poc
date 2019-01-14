@@ -1,0 +1,38 @@
+---
+# Stop all Apache Tomcat instances, backup and delete the install directory.
+# parameters catalina_version: 8.5.37
+
+- name: Stop all tomcat instances
+  shell: "{{catalina_base}}/instances/{{ item.value.name }}/bin/shutdown.sh"
+  args:
+    executable: /bin/bash
+  with_dict: "{{ nodes }}"
+  ignore_errors: yes
+
+- name: Create Archive directory
+  file:
+    path: "{{catalina_base}}/Archive/"
+    state: directory
+    mode: 0755
+
+- name: Backup catalina version {{backup_catalina_version}} - Binary
+  archive:
+    path: "{{catalina_base}}/apache-tomcat-{{backup_catalina_version}}"
+    dest: "{{catalina_base}}/Archive/backup-apache-tomcat-{{backup_catalina_version}}-{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M-%S')}}.zip"
+    format: zip
+
+- name: Backup catalina version {{backup_catalina_version}} - instances
+  archive:
+    path: "{{catalina_base}}/instances"
+    dest: "{{catalina_base}}/Archive/backup-instances-{{backup_catalina_version}}-{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M-%S')}}.zip"
+    format: zip
+
+# - name: Delete the Tomcat/Catalina Home and all Base directories underneath
+#   file:
+#     path: "{{item}}"
+#     state: absent
+#   with_items:
+#     - "{{catalina_base}}/instances"
+#     - "{{catalina_base}}/apache-tomcat-{{catalina_version}}"
+#   tags:
+#     - deleteBaseInstances

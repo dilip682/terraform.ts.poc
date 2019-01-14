@@ -62,10 +62,10 @@ variable "sub3_cidr_block" {
   description = "the cidr block for third subnet"
 }
 
-variable "ssl_arn" {
-  type        = "string"
-  description = "ssl for ALB"
-}
+# variable "ssl_arn" {
+#   type        = "string"
+#   description = "ssl for ALB"
+# }
 
 variable "sub4_cidr_block" {
   type        = "string"
@@ -87,7 +87,7 @@ variable "AMIS" {
 
   default = {
     us-east-1      = "ami-13be557e"
-    us-east-2      = "ami-049ceee1"
+    us-east-2      = "ami-049ceee18ac22d417"
     us-west-2      = "ami-06b94666"
     eu-west-1      = "ami-466768ac"
     ap-south-1     = "ami-76d6f519"

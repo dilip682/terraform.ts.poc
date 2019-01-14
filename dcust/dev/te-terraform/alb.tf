@@ -16,7 +16,7 @@ resource "aws_alb_target_group" "alb_app_http" {
   vpc_id   = "${aws_vpc.main.id}"
   port     = "8080"
   protocol = "HTTP"
-# 
+#
   health_check {
     path                = "/index.jsp"
     port                = "8080"
@@ -82,11 +82,18 @@ resource "aws_alb_target_group_attachment" "alb_backend-02_http" {
 #  port             = "8080"
 #}
 
+# resource "aws_alb_listener" "alb_listener" {
+#   load_balancer_arn = "${aws_alb.alb.arn}"
+#   port              = "443"
+#   protocol          = "HTTPS"
+#   ssl_policy        = "ELBSecurityPolicy-2015-05"
+#   certificate_arn   = "${var.ssl_arn}"
+
 resource "aws_alb_listener" "alb_listener" {
   load_balancer_arn = "${aws_alb.alb.arn}"
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2015-05"
+  port              = "80"
+  protocol          = "HTTP"
+  # ssl_policy        = "ELBSecurityPolicy-2015-05"
   # certificate_arn   = "${var.ssl_arn}"
 
   default_action {

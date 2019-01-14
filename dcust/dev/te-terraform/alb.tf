@@ -16,7 +16,7 @@ resource "aws_alb_target_group" "alb_app_http" {
   vpc_id   = "${aws_vpc.main.id}"
   port     = "8080"
   protocol = "HTTP"
-
+# 
   health_check {
     path                = "/index.jsp"
     port                = "8080"

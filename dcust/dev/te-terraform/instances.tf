@@ -1,7 +1,7 @@
 #Bastion server
 resource "aws_instance" "example" {
-  # ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
-  ami           = "ami-942dd1f6"
+  ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
+  # ami           = "ami-942dd1f6"
   instance_type = "t2.micro"
 
   # the VPC subnet
@@ -37,8 +37,8 @@ data "template_file" "user_data1" {
 }
 
 resource "aws_instance" "app1" {
-  # ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
-  ami           = "ami-942dd1f6"
+  ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
+  # ami           = "ami-942dd1f6"
   instance_type = "t2.large"
 
   # the VPC subnet
@@ -74,8 +74,8 @@ resource "aws_instance" "app1" {
 # }
 
 resource "aws_instance" "index1" {
-  # ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
-  ami           = "ami-942dd1f6"
+  ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
+  # ami           = "ami-942dd1f6"
   instance_type = "t2.large"
 
   # the VPC subnet
@@ -102,8 +102,8 @@ resource "aws_instance" "index1" {
 }
 
 resource "aws_instance" "oracle" {
-  # ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
-  ami           = "ami-3b288c59"
+  ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
+  # ami           = "ami-3b288c59"
   instance_type = "t2.micro"
 
   # the VPC subnet

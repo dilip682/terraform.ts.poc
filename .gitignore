@@ -13,5 +13,5 @@
 *.pub
 
 # Any Key File
-*key*.*
-*Key*.*
+# *key*.*
+# *Key*.*

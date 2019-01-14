@@ -1,4 +1,0 @@
-
-- hosts: app1 
-  roles:
-     - tomcat

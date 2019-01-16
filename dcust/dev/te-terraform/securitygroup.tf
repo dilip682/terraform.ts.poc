@@ -15,6 +15,13 @@ module "allow-ssh" {
       to_port     = 22
       cidr_blocks = "${var.blr_cidr_block}"
     },
+    {
+      description = "Allow traffic from ALL"
+      protocol    = "tcp"
+      from_port   = 22
+      to_port     = 22
+      cidr_blocks = "${var.all_cidr_block}"
+    }
   ]
 
   tags {
